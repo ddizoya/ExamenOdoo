@@ -162,7 +162,7 @@
         <!-- Action para enlazar botón del menú que se creará a posteriori, con el xml del model -->
         <record model="ir.actions.act_window" id="aulas_list_action">
             <field name="name">aulas</field>
-            <field name="res_model">openacademy.session</field>
+            <field name="res_model">openacademy.aulas</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>

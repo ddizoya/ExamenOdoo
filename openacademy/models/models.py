@@ -23,3 +23,8 @@ class Session(models.Model):
     instructor_id = fields.Many2one('res.partner', string="Instructor")
     course_id = fields.Many2one('openacademy.course',
         ondelete='cascade', string="Curso", required=True)
+
+class Aulas(models.Model):
+    _name = 'openacademy.aulas'
+ 
+    name = fields.Char(string="Nombre del aula", required=True)
