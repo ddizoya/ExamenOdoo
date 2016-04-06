@@ -24,12 +24,12 @@ class Session(models.Model):
     course_id = fields.Many2one('openacademy.course',
         ondelete='cascade', string="Curso", required=True)
 
-    aula_id = fields.Many2one('openacademy.aulas', ondelete='cascade', string="Curso", required=True )
+    aula_id = fields.Many2one('openacademy.aulas', 'ses_id', string="aula")
 
 class Aulas(models.Model):
     _name = 'openacademy.aulas'
  
     name = fields.Char(string="Nombre del aula", required=True)
-    sess_id = fields.One2many('openacademy.session', 'aula_id', string="Sesión")
+    ses_id = fields.One2many('openacademy.session', ondelete='cascade', string="Sesion", required=True )
     
     

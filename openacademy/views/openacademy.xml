@@ -136,10 +136,10 @@
         </record>
              
         <menuitem id="session_menu" name="Sessions"
-                       parent="openacademy_menu"
-                       action="session_list_action"/>
+                  parent="openacademy_menu"
+                  action="session_list_action"/>
     
-       <!-- Creamos el record del modelo Aulas-->    
+        <!-- Creamos el record del modelo Aulas-->    
         <record model="ir.ui.view" id="aulas_form_view">
             <field name="name">aulas.form</field>
             <field name="model">openacademy.aulas</field>
@@ -147,8 +147,13 @@
                 <form string="Aulas Form">
                     <sheet>
                         <group string="Vistado a las aulas">
-                                <field name="name"/>
-                                 <field name="sess_id"/>
+                            <field name="name"/>
+                            <field name="sess_id">
+                                <tree string="Aulas Tree">
+                                    <field name="name"/>
+                                    <field name="aula_id"/>
+                                </tree>
+                           <field/>
                         </group>
                     </sheet>
                 </form>
@@ -162,7 +167,7 @@
             <field name="arch" type="xml">
                 <tree string="Aulas Tree">
                     <field name="name"/>
-                    <field name="sess_id"/>
+                    <field name="aula_id"/>
                 </tree>
             </field>
         </record>
@@ -177,7 +182,7 @@
         
         <!-- Botón dentro del menú de Openacademy desde el que llamaremos al model aulas -->
         <menuitem id="aulas_menu" name="Aulas"
-                       parent="openacademy_menu"
-                       action="aulas_list_action"/>      
+                  parent="openacademy_menu"
+                  action="aulas_list_action"/>      
     </data>
 </openerp>
