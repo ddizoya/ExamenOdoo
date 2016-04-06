@@ -133,9 +133,43 @@
                        parent="openacademy_menu"
                        action="session_list_action"/>
     
+       <!-- Creamos el record del modelo Aulas-->    
+        <record model="ir.ui.view" id="aulas_form_view">
+            <field name="name">aulas.form</field>
+            <field name="model">openacademy.aulas</field>
+            <field name="arch" type="xml">
+                <form string="Aulas Form">
+                    <sheet>
+                        <group string="Vistado a las aulas">
+                                <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Tree View para aulas -->
+        <record model="ir.ui.view" id="aulas_tree_view">
+            <field name="name">aulas.tree</field>
+            <field name="model">openacademy.aulas</field>
+            <field name="arch" type="xml">
+                <tree string="Aulas Tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
     
+        <!-- Action para enlazar botón del menú que se creará a posteriori, con el xml del model -->
+        <record model="ir.actions.act_window" id="aulas_list_action">
+            <field name="name">aulas</field>
+            <field name="res_model">openacademy.session</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
         
-        
-        
+        <!-- Botón dentro del menú de Openacademy desde el que llamaremos al model aulas -->
+        <menuitem id="aulas_menu" name="Aulas"
+                       parent="openacademy_menu"
+                       action="aulas_list_action"/>      
     </data>
 </openerp>
